@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/f82df14a80.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap 5.2.0 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <!-- css stylesheet -->
+    <link rel="stylesheet" href="/css/general-styles.css" />
+    <link rel="stylesheet" href="/css/home-styles.css" />
+    <title>CRM Genie</title>
+  </head>
+
+  <body class="background-img">
+<!--**********  NAVBAR SECTION ***********-->
+    <%- include('partials/navbar') %>
+
+<!--********** ABOUT US SECTION **********-->
+            <section class="aboutus-background">
+            <div class="about-us">
+            <h1>About CRM Genie</h1>
+            <br>
+            <p>
+              CRM Genie is a quick and easy-to-use customer relations management program that facilitates businesses in managing their assets so
+              they can spend less time struggling with outdated paper documents and more time focusing on other things. CRM Genie was created in
+              2022 as a group collaboration by talented programmers Stephen Hammonds, Jean Lalaine Susor, and Sherif Ackles using the MERN stack.
+            </p>
+            </div>
+          </section>
+
+<!--**********  FOOTER SECTION *********  -->
+    <%- include('partials/footer') %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

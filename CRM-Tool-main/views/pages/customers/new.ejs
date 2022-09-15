@@ -1,0 +1,40 @@
+<%- layout('layout/dashboard-template')%>
+<!-- BREADCRUMBS -->
+<div class="">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="/dashboard/customers">Customers</a></li>
+    <li class="breadcrumb-item active" aria-current="page">New</li>
+  </ol>
+</nav>
+</div>
+
+<div class="white rounded p-3 d-flex justify-content-center">
+  <div class="" style="width: 50%; min-width: 250px">
+<h2 class="mb-5 text-center border-bottom">Add a Customer</h2>
+<form action="/dashboard/customers" method="POST">
+  <div class="mb-3">
+  <label for="name" class="form-label">Customer Name</label>
+  <input type="text" class="form-control" name="customer[name]" id="name" placeholder="Customer's name">
+  </div>
+
+  <div class="mb-3">
+  <label for="tel" class="form-label">Phone Number</label>
+  <input type="tel" class="form-control" name="customer[tel]" id="tel">
+  </div>
+
+  <div class="mb-3">
+  <label for="email" class="form-label">Email</label>
+  <input type="email" class="form-control" name="customer[email]" id="email">
+  </div>
+
+  <div class="mb-3">
+  <label for="address" class="form-label">Address</label>
+  <input type="text" class="form-control" name="customer[address]" id="address" placeholder="Address">
+  </div>
+
+  <button class="submitBtn btn-gradient py-2">Submit</button>
+</form>
+</div>
+</div>

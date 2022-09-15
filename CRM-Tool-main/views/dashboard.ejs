@@ -1,0 +1,180 @@
+<%- layout('layout/dashboard-template')%>
+
+<!-- RIGHT DASHBOARD RESULTS -->
+
+<div class="row flex-wrap py-0 gx-4">
+  <div class="col-lg-9 mb-3">
+    <div class="buttons-container mb-3 row">
+      <button class="col btn btn-success mx-3" id="chart1Btn">
+        <b>Price Comparison</b></button>
+      <button class="col btn btn-success mx-3" id="chart2Btn">
+        <b>Inventory</b></button>
+    </div>
+
+  <div class="indCards">
+    <div class="chart-front rounded white" id="chart1">
+    <canvas id="myChart">
+    </canvas>
+    </div>
+
+    <div class="chart-Back rounded white" id="chart2">
+    <canvas id="inventory">
+    </canvas>
+    </div>
+  </div>
+  </div>
+
+  <div class="col-lg-3">
+    <!-- <div class="d-flex justify-content-center align-items-center"> -->
+    <div class="gradient rounded user-background mb-2">
+      </div>
+      <div class="circle">
+        <img src="/images/female.png" alt="user-image" class="img-fluid" />
+      </div>
+
+    <div class="white list-group-container rounded-bottom">
+      <ul class="list-group list-group-flush">
+        <!-- name -->
+        <li class="list-group-item text-center">
+          <span class=""><%=user.name%></span>
+        </li>
+        <li class="list-group-item"><!-- email -->
+          <span class="user-icon"><i class="fa-solid fa-envelope-open-text">
+          </i></span>
+          <span class="px-2"><%=user.email %></span>
+        </li>
+        <!-- company -->
+        <li class="list-group-item">
+          <span class="user-icon"><i class="fa-solid fa-building"></i></span>
+          <span class="px-2"><%=user.company %></span>
+        </li>
+        <!-- website -->
+        <li class="list-group-item">
+          <span class="user-icon"><i class="fa-solid fa-globe"></i></span>
+          <span class="px-2"><%=user.website %></span>
+        </li>
+        <!-- address -->
+        <li class="list-group-item">
+          <span class="user-icon"><i class="fa-solid fa-signs-post"></i></span>
+          <span class="px-2"><%=user.address %></span>
+        </li>
+        <!-- tel -->
+        <li class="list-group-item">
+          <span class="user-icon"><i class="fa-solid fa-phone"></i></span>
+          <span class="px-2"><%=user.tel %></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript">
+  const ctx = document.getElementById('myChart');
+  const inventoryCtx = document.getElementById('inventory');
+  Chart.defaults.font.size = 16;
+  const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      // labels: "<%= names %>".split(','),
+      labels: <%- JSON.stringify(names) %> ,
+      datasets: [{
+          label: 'item price',
+          data: [ <%= itemPrice %> ],
+          backgroundColor: '#6ca538',
+          borderColor: [
+            '#6ca538'
+          ],
+          borderWidth: 1
+        },
+        {
+          label: 'selling price',
+          data: [ <%= soldPrice %> ],
+          backgroundColor: 'rgba(54, 162, 235, 1)',
+          borderColor: [
+            'rgba(54, 162, 235, 1)'
+          ],
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Cost & Selling Price Comparison'
+        },
+        legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 14
+                    }
+                }
+            },
+      },
+    scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  const productChart = new Chart(inventoryCtx, {
+    type: 'bar',
+    data: {
+      // labels: "<%= names %>".split(','),
+      labels: <%- JSON.stringify(names) %> ,
+      datasets: [{
+          label: 'Amount of Products',
+          data: [ <%= stock %> ],
+          backgroundColor: '#ffd54d',
+          borderColor: [
+            '#ffd54d'
+          ],
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      elements: {
+        bar: {
+          borderWidth: 1,
+        }
+      },
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+        },
+        title: {
+          display: true,
+          text: 'Inventory'
+        }
+      },
+      scales: {
+        x: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  const chartBtn1 = document.getElementById('chart1Btn');
+const chartBtn2 = document.getElementById('chart2Btn');
+
+chartBtn1.addEventListener("click", showChart1);
+chartBtn2.addEventListener("click", showChart2);
+
+function showChart1() {
+  document.getElementById("chart1").style.display = "block";
+document.getElementById("chart2").style.display = "none";
+}
+
+function showChart2() {
+  document.getElementById("chart1").style.display = "none";
+document.getElementById("chart2").style.display = "block";
+}
+</script>

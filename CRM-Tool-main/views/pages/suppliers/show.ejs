@@ -1,0 +1,44 @@
+<%- layout('layout/dashboard-template')%>
+<!-- BREADCRUMBS -->
+<div class="">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="/dashboard/suppliers">Suppliers</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= supplier.name%></li>
+  </ol>
+</nav>
+</div>
+
+<div class="row white rounded p-3">
+  <div class="col-6 offset-3">
+    <div class="card">
+
+      <div class="card-body">
+        <h5 class="card-title"><%= supplier.name%></h5>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-muted"><%= supplier.tel %></li>
+        <li class="list-group-item text-muted"><%= supplier.email %></li>
+        <li class="list-group-item text-muted"><%= supplier.address %></li>
+        <li class="list-group-item text-muted">
+          List of Products
+          <ul>
+            <% for (let product of supplier.products) { %>
+            <li><%= product.name %>, <%= product.weight %></li>
+            <% } %>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="card-body">
+        <a class="card-link btn btn-info" href="/dashboard/suppliers/<%=supplier._id%>/edit">Edit</a>
+        <form class="d-inline" action="/dashboard/suppliers/<%=supplier._id%>?_method=DELETE" method="post">
+          <button class="card-link btn btn-danger">Delete</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

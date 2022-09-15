@@ -1,0 +1,83 @@
+<%- layout('layout/dashboard-template')%>
+<!-- BREADCRUMBS -->
+<div class="">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="/dashboard/products">Products</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+  </ol>
+</nav>
+</div>
+<!-- MAIN -->
+<div class="white rounded px-3 d-flex justify-content-center">
+  <div class="reg-form">
+<h2 class="mb-5 text-center border-bottom">Edit a Product</h2>
+
+<form class="row gx-5" action="/dashboard/products/<%=product._id %>?_method=PUT" method="POST">
+  <div class="col">
+  <div class="mb-3">
+  <label for="name" class="form-label">Name</label>
+  <input type="text" name="product[name]" id="name"
+  value="<%=product.name%>" placeholder="Name">
+  </div>
+
+  <div class="mb-3">
+  <label for="intensity" class="form-label">Intensity</label>
+  <input type="text" name="product[intensity]" id="intensity"
+  value="<%=product.intensity%>">
+  </div>
+
+  <div class="mb-3">
+  <label for="weight" class="form-label">Weight</label>
+  <input type="text" name="product[weight]" id="weight"
+  value="<%=product.weight%>">
+  </div>
+
+  <div class="mb-3">
+  <label for="price" class="form-label">Item Cost</label>
+  <input type="number" name="product[itemCost]" id="itemCost"
+  value="<%=product.itemCost %>">
+  </div>
+  </div>
+  <div class="col">
+  <div class="mb-3">
+  <label for="price" class="form-label">Selling Price</label>
+  <input type="number" name="product[sellingPrice]" id="sellingPrice"
+  value="<%=product.sellingPrice%>">
+  </div>
+
+  <div class="mb-3">
+  <label for="price" class="form-label">Current Stock</label>
+  <input type="number" name="product[currentStock]" id="currentStock"
+  value="<%=product.currentStock%>">
+  </div>
+
+  <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select id="productCategory" class="form-select" name="product[category]"
+      id="category" value="<%=product.category%>">
+        <% for (let category of categories) { %>
+        <option><%=category%></option>
+        <% } %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+    <label for="price" class="form-label">Supplier</label>
+    <select id="productSupplier" class="form-select"
+    name="product[supplier]" id="supplier">
+      <% for (let supplier of supplierNames) { %>
+      <option value="<%=supplier._id%>"><%= supplier.name %></option>
+      <% } %>
+    </select>
+    </div>
+    </div>
+    <div class="">
+
+
+  <button class="submitBtn btn-gradient py-2">Submit</button>
+  </div>
+</form>
+</div>
+</div>

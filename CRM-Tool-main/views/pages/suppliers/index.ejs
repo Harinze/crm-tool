@@ -1,0 +1,48 @@
+<%- layout('layout/dashboard-template')%>
+<div class="">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Suppliers</li>
+  </ol>
+</nav>
+</div>
+
+<div class="white rounded p-3">
+<div class="">
+  <h1 class="mb-5">Suppliers</h1>
+
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <th scope="col"></th>
+         <th scope="col">Company Name</th>
+         <th scope="col">Phone Number</th>
+         <th scope="col">Email Address</th>
+         <th scope="col">Address</th>
+         <th scope="col"></th>
+       </tr>
+     </thead>
+
+    <tbody class="table-primary">
+        <% for (let supplier of suppliers) { %>
+          <tr>
+          <th scope="row"><a class="btn btn-primary btn-sm"
+            href="/dashboard/suppliers/<%= supplier._id %>/edit">
+            Edit</a></th>
+        <td><a href="/dashboard/suppliers/<%= supplier._id%>">
+          <%= supplier.name %></a></td>
+        <td><%= supplier.tel %></td>
+        <td><%= supplier.email %></td>
+        <td><%= supplier.address %></td>
+        <td>
+          <form id="delete-supplier" action="/dashboard/suppliers/<%= supplier._id %>?_method=DELETE" method="post">
+          <button><i class="fa-solid fa-rectangle-xmark"></i></button>
+         </form
+      </td>
+      </tr>
+      <% } %>
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="/dashboard/suppliers/new">Add new</a>

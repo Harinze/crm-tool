@@ -1,0 +1,58 @@
+<%- layout('layout/dashboard-template')%>
+<!-- BREADCRUMBS -->
+<div class="">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="/dashboard/products">Products</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><%= product.name%></li>
+    </ol>
+  </nav>
+</div>
+
+<!-- MAIN -->
+<div class="white rounded p-3 container-fluid">
+  <table class="table table-bordered mb-5">
+    <tr>
+      <h2 class="text-center secondary-color py-2"><%= product.name %></h2>
+    </tr>
+    <tbody>
+      <tr>
+        <td><b>Intensity:</b></td>
+        <td> <%= product.intensity %></td>
+      </tr>
+      <tr>
+        <td><b>Weight:</b></td>
+        <td> <%= product.weight %></td>
+      </tr>
+      <tr>
+        <td><b>Buying Price</b>:</td>
+        <td>$<%= product.itemCost %></td>
+      </tr>
+      <tr>
+        <td><b>Selling Price: </b></td>
+        <td><%= product.sellingPrice %></td>
+      </tr>
+      <tr>
+        <td><b>Category:</b></td>
+        <td> <%= product.category %></td>
+      </tr>
+      <tr>
+        <td><b>Stock Amount: </b></td>
+        <td><%= product.currentStock %></td>
+      </tr>
+      <tr>
+        <td><b>Supplier:</b></td>
+        <td> <%= product.supplier.name %></td>
+      </tr>
+      <!-- </ul> -->
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-end">
+    <a class="btn btn-info" href="/dashboard/products/<%=product._id%>/edit">Edit</a>
+    <form class="d-inline" action="/dashboard/products/<%= product._id%>?_method=DELETE" method="post">
+      <button class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>

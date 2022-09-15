@@ -1,0 +1,74 @@
+<%- layout('layout/dashboard-template')%>
+<!-- BREADCRUMBS -->
+<div class="">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="/dashboard/products">Products</a></li>
+      <li class="breadcrumb-item active" aria-current="page">New</li>
+    </ol>
+  </nav>
+</div>
+
+<div class="white rounded px-3 d-flex justify-content-center">
+  <div class="reg-form">
+    <h2 class="mb-5 text-center border-bottom">Add New Product</h2>
+    <form class="row gx-5" action="/dashboard/products" method="POST">
+      <div class="col">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" name="name" id="name" placeholder="name">
+        </div>
+
+        <div class="mb-3">
+          <label for="intensity" class="form-label">Intensity</label>
+          <input type="text" name="intensity" id="intensity" placeholder="">
+        </div>
+
+        <div class="mb-3">
+          <label for="weight" class="form-label">Weight</label>
+          <input type="text" name="weight" id="weight" placeholder="">
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Item Cost</label>
+          <input type="number" name="itemCost" id="itemCost" placeholder="">
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="mb-3">
+          <label for="price" class="form-label">Selling Price</label>
+          <input type="number" name="sellingPrice" id="sellingPrice" placeholder="">
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Current Stock</label>
+          <input type="number" name="currentStock" id="currentStock" placeholder="">
+        </div>
+
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <select id="category" class="form-select" name="category">
+            <% for (let category of categories) { %>
+            <option value="<%=category%>"><%=category%></option>
+            <% } %>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="supplier" class="form-label">Supplier</label>
+          <select id="supplier" class="form-select" name="supplier">
+            <% for (let supplier of suppliers) {%>
+            <option value="<%=supplier._id%>"><%=supplier.name%></option>
+            <% } %>
+          </select>
+        </div>
+      </div>
+      <div class="">
+        <button class="submitBtn btn-gradient py-2">Submit</button>
+      </div>
+
+    </form>
+  </div>
+</div>

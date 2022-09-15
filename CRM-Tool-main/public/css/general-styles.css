@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
+
+/* Reset  */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*********************************************** Utility Components  *************************************************/
+:root {
+  font-size: 18px;
+  letter-spacing: 1px;
+  /* Colors */
+  --color-primary: #284b63;
+  --color-secondary: #38a3a5;
+  --color-secondary-d: #3c6e71;
+  --color-body: #d9d9d9;
+  --color-font: #353535;
+  /* box shadow */
+  --box-shadow: 3px 3px 10px 3px #28282B;
+  --box-shadow-small: 1px 1px 5px 1px grey;
+}
+
+body {
+  color: var(--color-font);
+  font-family: 'Alegreya Sans', sans-serif;
+  letter-spacing: 1.1px;
+  min-height: 100vh;
+}
+
+.primary-color {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.nav-link:hover,
+.nav-link:active,
+  color: var(--color-secondary);
+}
+
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-secondary-d);
+}
+
+/* --------------- FOOTER --------------------- */
+footer {
+  z-index: 2;
+}
+
+.copyrights {
+  text-align: center;
+  color: #d9dcd6;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  line-height: 10px;
+}
+
+.footer-icon {
+  font-size: calc(1rem + 0.6667vw);;
+  transition: color 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.nav-link:hover,
+.nav-link:active,
+.footer-icon:hover,
+.footer-icon:active {
+  color: var(--color-secondary);
+}

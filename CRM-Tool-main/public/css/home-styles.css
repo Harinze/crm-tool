@@ -1,0 +1,175 @@
+.background-img {
+  background-color: var(--color-font);
+  background-image: url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--color-font);
+  font-size: 0.9rem;
+}
+
+.background-gradient {
+  background-color: #8EC5FC;
+  background: -webkit-linear-gradient(242deg, #8EC5FC 0%, #E0C3FC 100%);
+  background: linear-gradient(to left, #8EC5FC 0%, #E0C3FC 50%, #8EC5FC 100%);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/* ------- Hompepage ---------------- */
+.header {
+  /* padding: 5rem; */
+  text-align: center;
+  line-height: 2.5rem;
+  letter-spacing: 10px;
+  margin-top: 15rem;
+}
+
+.header h1, h3 {
+  color: white;
+}
+
+.bg-inner {
+  position: relative;
+  width: 100%;
+  height: 20rem;
+  background-color: transparent;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  transition: .5s ease;
+  opacity: 1;
+}
+
+.text {
+  position: absolute;
+  color: #e4e2e2;
+  font-size: 5rem;
+  top: 35%;
+  left: 33%;
+  transition: all 0.5s ease-in-out;
+}
+
+/* features */
+#features {
+  padding: 7% 15%;
+  margin-top: 15rem;
+}
+
+.card-extra {
+  background-color: #38a3a5;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 2rem;
+  box-shadow: var(--box-shadow-small);
+  height: 20rem;
+}
+
+.card-icon {
+  margin: 1rem 0;
+  color: var(--color-primary);
+}
+
+.card-icon:hover {
+  color: #0c0d0d;
+}
+
+.feature-box-p {
+  margin: 5%;
+}
+
+.Register {
+  background-color: white;
+  color: blue;
+  margin-top: 3rem;
+  letter-spacing: 0;
+}
+
+/* ------------- ABOUT PAGE -------------- */
+.aboutus-background {
+  margin: 8rem 10rem;
+  background-color: rgba(16, 30, 39, 0.7);
+  z-index: -1;
+  padding: 4rem 6rem;
+}
+
+.about-us {
+  background-color: transparent;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  color: #eee;
+  z-index: 1;
+}
+
+/* ------------- LOGIN/REGISTER PAGE -------------- */
+.height {
+  /*reusable class. be careful changing it */
+  min-height: 90vh;
+  max-height: auto;
+}
+
+.login-inner {
+  max-width: 100%;
+  min-width: 350px;
+  height: min-content;
+  line-height: 0.8;
+  background-color: white;
+  color: var(--color-font);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-small);
+  overflow: hidden;
+}
+
+.login-inner-form label {
+  font-size: 0.8rem;
+  letter-spacing: 0.8;
+  font-weight: bold;
+  color: var(--color-secondary-d);
+  font-family: sans-serif;
+}
+
+.login-inner-form input {
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+  background-color: #eee;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  box-shadow: 1px 1px 1px 1px grey;
+}
+
+.login-inner-form input:focus {
+  border: none;
+  outline: none;
+}
+
+#emailHelp {
+  font-size: 0.8rem;
+}
+
+.btn-gradient {
+  background: #3c6e71;
+  background: linear-gradient(to top, #38a3a5 40%, #1a3040 100%);
+  color: white;
+}
+
+.submitBtn {
+  display: block;
+  width: 50%;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}

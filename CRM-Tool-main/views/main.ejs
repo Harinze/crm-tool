@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/f82df14a80.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap 5.2.0 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <!---Custom File---->
+  <!-- <script src="/public/scripts.js"></script> -->
+
+  <!-- css stylesheet -->
+  <link rel="stylesheet" href="/css/general-styles.css" />
+  <link rel="stylesheet" href="/css/home-styles.css" />
+  <title>CRM Genie</title>
+</head>
+
+<body class="background-img">
+  <!--**********  NAVBAR SECTION ***********-->
+  <%- include('partials/navbar') %>
+
+  <!--**********  MAIN BODY SECTION *********  -->
+  <section class="header">
+    <div class="bg-inner">
+    </div>
+    <div class="overlay"></div>
+    <div class="text text-center">
+      <h1>
+        CRM Genie
+      </h1>
+      <h3>
+        <br>
+        Work is Done, <span class="underline">
+          Period</span>.
+      </h3>
+
+      <a class="Register btn btn-primary btn-lg" href="/register">Register</a>
+
+    </div>
+
+
+  </section>
+  <!-- customer service -->
+  <section id="features">
+    <div class="row g-4">
+      <div class="text-center col-lg-4">
+        <!-- First card -->
+        <div class="card card-extra">
+          <i class="card-icon fa-solid fa-square-phone fa-5x"></i>
+          <p class="feature-box-p">
+            Keep your business running optimally by organizing your assets
+            like a pro.
+          </p>
+        </div>
+      </div>
+
+      <!-- data, second card -->
+
+      <div class="text-center col-lg-4">
+        <div class="card card-extra">
+          <i class="card-icon fa-solid fa-chart-line fa-5x"></i>
+          <p class="feature-box-p">
+            Ensure maximum profit streams by utilizing statistical analysis
+            tools to see ways you can improve.
+          </p>
+        </div>
+      </div>
+
+      <!-- profit, Third card -->
+
+      <div class="text-center col-lg-4">
+        <div class="card card-extra">
+          <i class="card-icon fa-solid fa-coins fa-5x"></i>
+          <p class="feature-box-p">
+            Quickly tracking your sales and expenses is easy with CRM Genie.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--**********  FOOTER SECTION *********  -->
+  <%- include('partials/footer') %>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<%- layout('layout/dashboard-template')%>
+<!-- BREADCRUMBS -->
+<div class="">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Products</li>
+  </ol>
+</nav>
+</div>
+
+<!-- MAIN -->
+<div class="white rounded p-3">
+  <h1 class="mb-3">Products</h1>
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <h5 class="px-3">Filter by:</h5>
+    <button class="btn btn-primary btn-sm mx-2" data-bs-toggle="collapse"
+    data-bs-target="#small-pack" aria-expanded="true"
+    aria-controls="small-pack">Small Pack</button>
+    <button class="btn btn-primary btn-sm mx-2" data-bs-toggle="collapse"
+      data-bs-target="#big-pack" aria-expanded="false"
+      aria-controls="big-pack">Big Pack</button>
+    <button class="btn btn-primary btn-sm mx-2" data-bs-toggle="collapse"
+      data-bs-target="#combo-pack" aria-expanded="false"
+      aria-controls="combo-pack">Combo Pack</button>
+  </div>
+
+  <div className="container-fluid">
+  <table class="table rounded">
+    <thead class="table-light">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Intensity</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Item Cost</th>
+        <th scope="col">Selling Price</th>
+        <th scope="col">Current Stock</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <% for (let product of products) { %>
+    <% if (product.category === 'big') { %>
+    <!-------- BIG PACKS' PRODUCTS ---------------->
+    <tbody class="table-primary collapse collapsing mb-5" id="big-pack">
+      <tr class="table-primary">
+        <th scope="row"><a class="btn btn-primary btn-sm"
+          href="/dashboard/products/<%= product._id %>/edit">
+            Edit</a></th>
+        <td><a href="/dashboard/products/<%= product._id%>"><%= product.name %></a></td>
+        <td><%= product.intensity %></td>
+        <td><%= product.weight %></td>
+        <td><%= product.itemCost %></td>
+        <td><%= product.sellingPrice %></td>
+        <td><%= product.currentStock %></td>
+        <td>
+          <form class="" action="/dashboard/products/<%= product._id %>?_method=DELETE" method="post">
+            <button class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </td>
+      </tr>
+        </tbody>
+      <% } else if (product.category === 'combo') { %>
+
+    <!-------- COMBO PACKS' PRODUCTS ---------------->
+    <tbody class="table-primary collapse collapsing mb-5" id="combo-pack">
+      <tr>
+        <th scope="row"><a class="btn btn-primary btn-sm" href="/dashboard/products/<%= product._id %>/edit">
+            Edit</a></th>
+            <td><a href="/dashboard/products/<%= product._id%>"><%= product.name %></a></td>
+            <td><%= product.intensity %></td>
+            <td><%= product.weight %></td>
+            <td><%= product.itemCost %></td>
+            <td><%= product.sellingPrice %></td>
+            <td><%= product.currentStock %></td>
+        <td>
+          <form class="" action="/dashboard/products/<%= product._id %>?_method=DELETE" method="post">
+            <button class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </td>
+      </tr>
+      </tbody>
+      <% } else { %>
+
+
+  <tbody class="table-primary collapse show" id="small-pack">
+    <tr>
+      <th scope="row"><a class="btn btn-primary btn-sm"
+        href="/dashboard/products/<%= product._id %>/edit">Edit</a></th>
+        <td><a href="/dashboard/products/<%= product._id%>"><%= product.name %></a></td>
+        <td><%= product.intensity %></td>
+        <td><%= product.weight %></td>
+        <td><%= product.itemCost %></td>
+        <td><%= product.sellingPrice %></td>
+        <td><%= product.currentStock %></td>
+      <td>
+        <form class="" action="/dashboard/products/<%= product._id %>?_method=DELETE" method="post">
+          <button class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% } %>
+        <% } %>
+  </tbody>
+</table>
+</div>
+
+  <a class="btn btn-primary btn-sm"
+  href="/dashboard/products/new">Add New Product</a>
+</div>
